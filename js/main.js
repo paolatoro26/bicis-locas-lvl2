@@ -61,17 +61,24 @@ function validate()
         if(!/[a-zaA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+/.test(correo))
         {
             document.getElementById("correo").appendChild(nom2);
+
+        }else{
+            nom2.style.display="none";
         }
         if(contraseña.length < 6 || contraseña === "123456" || contraseña === "098754" || contraseña === "password")
         {
             document.getElementById("contraseña").appendChild(nom3);
+        }else{
+            nom3.style.display="none";
         }
         if (bicis<1)
         {
             biciTipo=false;
             document.getElementById("tipo").appendChild(nom4);
-        }else{
-            document.tipo.submit();
+            
+        }else     {
+            biciTipo=true;
+            nom4.style.display="none";
         }
         if(nombre ==""||apellido==""||correo==""||contraseña=="")
         {
