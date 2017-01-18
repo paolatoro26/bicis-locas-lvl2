@@ -44,31 +44,40 @@ function validate()
         var contraseña=document.getElementById("input-password").value;
         var biciTipo=true;
 
-        var nom =document.createElement("input");
-        //var nomText=document.createTextNode("Debe ingresar su nombre");
-        //    nom.appendChild(nomText);
+        var nom1 =document.createElement("span");
+        var nom2 =document.createElement("span");
+        var nom3 =document.createElement("span");
+        var nom4 =document.createElement("span");
+        var nomText=document.createTextNode("Debe ingresar su nombre");
+        var correoText=document.createTextNode("Verifique su e-mail");
+        var contraText=document.createTextNode("La contraseña debe tener al menos 6 caracteres");
+        var tipoText=document.createTextNode("Debe seleccionar al menos un tipo de bici");
+            nom1.appendChild(nomText);
+            nom2.appendChild(correoText);
+            nom3.appendChild(contraText);
+            nom4.appendChild(tipoText);
 
 
         if(!/[a-zaA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+/.test(correo))
         {
-            alert("correo incorrecto");
+            document.getElementById("correo").appendChild(nom2);
         }
-        
         if(contraseña.length < 6 || contraseña === "123456" || contraseña === "098754" || contraseña === "password")
         {
-             alert("Ingrese otra contraseña");
+            document.getElementById("contraseña").appendChild(nom3);
         }
         if (bicis<1)
         {
             biciTipo=false;
-            alert("Elija una bici");
+            document.getElementById("tipo").appendChild(nom4);
+        }else{
+            document.tipo.submit();
         }
         if(nombre ==""||apellido==""||correo==""||contraseña=="")
         {
-            name.appendChild(nom);
-            //alert("Falta llenar datos");
-        }      
-        
+            document.getElementById("nombre").appendChild(nom1);
+           
+        }            
     }
 
 
