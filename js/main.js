@@ -3,7 +3,7 @@
         var nom2 =document.createElement("span");
         var nom3 =document.createElement("span");
         var nom4 =document.createElement("span");
-        var nomText=document.createTextNode("Debe ingresar su nombre");
+        //var nomText=document.createTextNode("Debe ingresar su nombre");
         var correoText=document.createTextNode("Verifique su e-mail");
         var contraText=document.createTextNode("La contraseña debe tener al menos 6 caracteres");
         var tipoText=document.createTextNode("Debe seleccionar al menos un tipo de bici");
@@ -12,6 +12,14 @@
             nom3.appendChild(contraText);
             nom4.appendChild(tipoText);
             
+function crearNodo(container,mensaje)
+{
+    var span =document.createElement("span");
+    span.appendChild(mensaje);
+    document.getElementById(container).appendChild(span);
+    
+}
+
 function validate()
     { 
 
@@ -23,15 +31,16 @@ function validate()
 
     function nombreYapellido()
     {
-        var nombre= document.getElementById("name").value; 
-        var apellido= document.getElementById("lastname").value;
+        //var nombre= document.getElementById("name").value;
+        var nombreTexto = document.createTextNode("Debe ingresar su nombre");
+        //var apellido= document.getElementById("lastname").value;
         //Nombre y apellido llenado correctamente
         if(nombre ==""||apellido=="")
         {
-            document.getElementById("nombre").appendChild(nom1);
-           
-        } else{
-            document.getElementById("nombre").removeChild(nom1);
+            //document.querySelector(".name-container").appendChild(nom1);
+           crearNodo("nombre", nombreTexto);
+        } //else{
+            document.querySelector(".name-container").removeChild(span);
         }
     }
 
@@ -56,10 +65,10 @@ function validate()
         //Estructura del correo electronico
         if(!/[a-zaA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+/.test(correo))
         {
-            document.getElementById("correo").appendChild(nom2);
+            document.querySelector(".email-container").appendChild(nom2);
 
         }else{
-            document.getElementById("correo").removeChild(nom2);
+            document.querySelector(".email-container").removeChild(nom2);
         }
     }
 
@@ -70,10 +79,9 @@ function validate()
         //Contraseña no menor a 6 caracteres
         if(contraseña.length < 6 || contraseña == "123456" || contraseña == "098754" || contraseña == "password")
         {
-            document.getElementById("contraseña").appendChild(nom3);
+            document.querySelector(".form-group").appendChild(nom3);
         }else{
-            console.log("ferfrf");
-            document.getElementById("contraseña").removeChild(nom3);
+            document.querySelector(".form-group").removeChild(nom3);
         } 
     }
 
