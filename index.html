@@ -20,31 +20,35 @@
           <h2 id="form-signup-heading">
             Bicis Locas
           </h2>
-
-          <div class="name-container input-box" id="nombre">
+            <!--nombre-->
+          <div class="name-container input-box" >
             <label for="name" class="sr-only">Nombre</label>
-            <input type="text" id="name" class="form-control"
-            placeholder="Ingrese su nombre" onkeyup="validateNombre(evento)"  required>
+            <input onkeyup="validarNombre()" type="text" id="name" class="form-control"
+            placeholder="Ingrese su nombre" >
           </div>
+            <!--apellido-->
           <div class="lastname-container input-box">
             <label for="lastname" class="sr-only">Apellido</label>
-            <input type="text" id="lastname" class="form-control"
-            placeholder="Ingrese su apellido" onkeyup="validateNombre(evento)"  required>
+            <input onkeyup="validarApellido()" type="text" id="lastname" class="form-control"
+            placeholder="Ingrese su apellido" >
           </div>
+            <!--e-mail-->
           <div class="email-container input-box">
             <label for="inputEmail" class="sr-only">
               Correo Electrónico
             </label>
-            <input type="email" id="input-email" class="form-control" placeholder="Ingrese su correo electrónico" autofocus="">
+            <input onkeyup="validarEmail()" type="email" id="input-email" class="form-control" placeholder="Ingrese su correo electrónico" >
           </div>
-          <div class="form-group input-box">
+          <!--contraseña-->
+          <div class="form-group input-box" id="contra">
             <label for="inputPassword" class="sr-only">
               Contraseña
             </label>
-            <input type="password" id="input-password" class="form-control" placeholder="Ingrese su contraseña">
+            <input onkeyup="validarContraseña()" type="password" id="input-password" class="form-control" placeholder="Ingrese su contraseña">
           </div>
-          <div class="form-group input-box" id="tipo">
-            <select class="form-control" id="bicis">
+          <!--Tipo de bicicleta-->
+          <div class="form-group input-box" id="bicis">
+            <select onkeyup="validarBicicleta()" class="form-control" id="tipos">
               <option value="0">Selecciona tu tipo de bici</option>
               <option value="1">Urbana</option>
               <option value="2">Treking</option>
