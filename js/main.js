@@ -1,22 +1,21 @@
 
    function validate()
     { 
-        nombre();
-        apellido();
-        email();/* 
-        contraseña ();
-        bicicleta();*/
+        validarNombre();
+        validarApellido();
+        validarEmail();
+        validarContrasenia();
+        validarBicicleta();
     }   
    function crearNodo(container,mensaje)
     {   
         var spans=container.getElementsByTagName("span");
         if(spans.length==0)
         {
-           var span =document.createElement("span");
+            var span =document.createElement("span");
             span.innerText=mensaje;
             container.appendChild(span); 
-        }
-               
+        }          
     }
     
     function eliminarNodo(input)
@@ -35,9 +34,10 @@
            crearNodo(nombre, "Debe ingresar su nombre");
            
         } 
-        else{
-             eliminarNodo(input);
-           }
+        else
+        {
+            eliminarNodo(input);
+        }
     }
     
     function validarApellido()
@@ -49,54 +49,54 @@
         {
            crearNodo(apellido, "Debe ingresar su apellido");     
         } 
-        else{
+        else
+        {
             eliminarNodo(input);
-        }
-            
-           
+        }        
     }
+
     function validarEmail()
     {
         var email= document.querySelector(".email-container");
         var input=document.getElementById("input-email");
         //E-mail llenado correctamente
         if(!/[a-zaA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+/.test(input.value))
-            {
+        {
             crearNodo(email, "Verifique su e-mail");
-            
-            } 
-        else{
-            
+        } 
+        else
+        {
             eliminarNodo(input);
-           }
+        }
     }
+
     function validarContrasenia()
     {
         var contrasenia= document.getElementById("contra");
-        var input=document.getElementById("input-password").value;
+        var input=document.getElementById("input-password");
         //Contraseña llenado correctamente
-        if(input.length < 6 || input == "123456" || input == "098754" || input == "password")
+        if((input.value).length < 6 || input.value == "123456" || input.value == "098754" || input.value == "password")
         {
-
-           crearNodo(contraseña, "Contraseña valido");
-            eliminarNodo(input);
+           crearNodo(contrasenia, "La contraseña debe tener al menos 6 caractere");   
         } 
-        else{
-             crearNodo(contraseña, "La contraseña debe tener al menos 6 caracteres");
-           }
+        else
+        {
+            eliminarNodo(input);
+        }
     }
     function validarBicicleta()
     {
         var bicis= document.getElementById("bicis");
-        var option=document.getElementsByTagName("option")[0];
+        var option=document.getElementById("tipos")[0];
         //Elegir una bicicleta obligatorio
         if(option)
-            crearNodo(bicis, "Seleccion valida");
-            eliminarNodo(input);
+        {
+            crearNodo(bicis, "Debes seleccionar al menos un tipo de bici");
         } 
-        else{
-             crearNodo(bicis,"Debes seleccionar al menos un tipo de bici");
-           }
+        else
+        {
+            eliminarNodo(option);
+        }
     }      
 
 
