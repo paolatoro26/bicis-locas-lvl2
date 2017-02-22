@@ -5,52 +5,64 @@ function validateForm()
     validarApellido();
     validarEmail();
     validarContrasenia();
-    validarBicicleta();
+    
+}
+function crearSpan(container,mensaje)
+{
+    if(container.find("span").length==0)
+        container.append("<span>"+mensaje+"</span>")
 }
 
-function validarNombre()
+function eliminarSpan(container)
 {
+    container.find("span").remove();
+}
+function validarNombre()
+{   
+    var contenedor = $(".name-container");
     var input=$("#name").val();
     if(input.length=="")
     {
-        $("#name").after("<span>Debe ingresar su nombre</span>");
+        crearSpan(contenedor,"Debe ingresar su nombre")
     }
     else{
-        $("span").remove();
+        eliminarSpan(contenedor)
     }
-
 }
 function validarApellido()
-{
+{ 
+    var contenedor = $(".lastname-container");
     var input=$("#lastname").val();
     if(input.length=="")
     {
-        $("#lastname").after("<span>Debe ingresar su apellido</span>");
+        crearSpan(contenedor,"Debe ingresar su apellido")
     }
     else{
-        $("span").remove();
+        eliminarSpan(contenedor)
     }
 }
 function validarEmail()
 {
+    var contenedor =$(".email-container");
     var input=$("#input-email").val();
     if(!/[a-zaA-Z0-9]+[@][a-zA-Z]+[.][a-zA-Z]+/.test(input))
     {
-        $("#input-email").after("<span>Verifique su e-mail</span>");
+        crearSpan(contenedor,"Verifique su e-mail");
     }
     else{
-        $("span").remove();
+        eliminarSpan(contenedor)
     }
 }
 function validarContrasenia()
 {
+    var contenedor =$("#contra");
     var input=$("#input-password").val();
     if((input).length < 6 || input == "123456" || input== "098754" || input== "password")
     {
-        $("#input-password").after("<span>Debe ingresar su apellido</span>");
+        crearSpan(contenedor,"La contraseña debe tener al menos 6 caractere");
     }
     else{
-        $("span").remove();
+        eliminarSpan(contenedor)
     }
 }
 function validarBicicleta()
@@ -58,23 +70,16 @@ function validarBicicleta()
     var input=$("#lastname").val();
     if(input.length=="")
     {
-        $("#lastname").after("<span>Debe ingresar su apellido</span>");
+        $("").after("<span>Debe ingresar su apellido</span>");
     }
     else{
-        $("span").remove();
+        eliminarSpan(contenedor)
     }
-
 }
    
-        //var span = $(".form-container").after("<span>Debe ingresar su nombre</span>")
-        
-  
+ 
 //-------------CODIGO SOLO JAVASCRIPT----------
     /* 
-$("#lastname").after("<span>Debe ingresar su apellido</span>");
-                $("#input-email").after("<span>Verifique su email</span>");
-                $("#input-password").after("<span>La contraseña debe tener al menos 6 caractere</span>");
-                $("#tipos").after("<span></span>");
     function validate()
     { 
         validarNombre();
