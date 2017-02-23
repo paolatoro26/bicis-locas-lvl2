@@ -5,7 +5,6 @@ $(document).ready(function(){
     $("#input-email").keyup(validarEmail);
     $("#input-password").keyup(validarContrasenia);
     $("#tipos").click(validarBicicleta);
-
 })
 function validateForm()
 {
@@ -14,7 +13,6 @@ function validateForm()
     validarEmail();
     validarContrasenia();
     validarBicicleta();
-    
 }
 function crearSpan(container,mensaje)
 {
@@ -86,8 +84,6 @@ function validarBicicleta()
         eliminarSpan(contenedor)
     }
 }
-   
- 
 //-------------CODIGO SOLO JAVASCRIPT----------
     /* 
     function validate()
