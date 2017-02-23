@@ -1,10 +1,19 @@
 //--------------CODIGO CON JQUERY-------------- 
+$(document).ready(function(){
+    $("#name").keyup(validarNombre);
+    $("#lastname").keyup(validarApellido);
+    $("#input-email").keyup(validarEmail);
+    $("#input-password").keyup(validarContrasenia);
+    $("#tipos").click(validarBicicleta);
+
+})
 function validateForm()
 {
     validarNombre();
     validarApellido();
     validarEmail();
     validarContrasenia();
+    validarBicicleta();
     
 }
 function crearSpan(container,mensaje)
@@ -67,10 +76,11 @@ function validarContrasenia()
 }
 function validarBicicleta()
 {
-    var input=$("#lastname").val();
-    if(input.length=="")
+    var contenedor=$("#bicis");
+    var input=$("#tipos").val();
+    if(input==0)
     {
-        $("").after("<span>Debe ingresar su apellido</span>");
+        crearSpan(contenedor,"La contraseña debe tener al menos 6 caractere");
     }
     else{
         eliminarSpan(contenedor)
